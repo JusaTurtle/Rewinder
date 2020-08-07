@@ -13,6 +13,8 @@ public class Rewinder : MonoBehaviour, Rewindable
     private Quaternion startRot;
     private Rigidbody2D rb;
 
+    public bool IsRewindng { get => isRewindng; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,5 +54,10 @@ public class Rewinder : MonoBehaviour, Rewindable
         isRewindng = true;
         recorder.PauseRecord();
         timer = delay;
+    }
+
+    public float GetFillPercent()
+    {
+        return timer / delay;
     }
 }
