@@ -28,7 +28,6 @@ public class Recorder : MonoBehaviour, Recordable
             timer = interval;
         }
         timer -= Time.deltaTime;
-        Debug.Log(pos.Peek(), this);
     }
 
     public Vector2 GetPositions()
