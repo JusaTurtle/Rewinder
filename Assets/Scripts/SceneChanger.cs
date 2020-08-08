@@ -9,10 +9,16 @@ public class SceneChanger : MonoBehaviour
     {
         int next = (SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene(next % SceneManager.sceneCount);
+        Debug.Log(next % SceneManager.sceneCount);
     }
 
     public static void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public static void Exit()
+    {
+        Application.Quit();
     }
 }
