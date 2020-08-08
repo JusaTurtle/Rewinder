@@ -29,6 +29,7 @@ public class Rewinder : MonoBehaviour, Rewindable
             if (!recorder.IsRecording)
             {
                 rb.simulated = true;
+                rb.velocity = new Vector2(0f, 0f);
                 isRewindng = false;
                 recorder.StartRecord();
             }
