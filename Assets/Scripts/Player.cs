@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     private List<Rewindable> rewinders;
     [SerializeField] private KeyCode rewindKey;
+    public AudioSource rewindSound;
 
     private void Awake() {
         rewinders = new List<Rewindable>();
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
             {
                 r.Rewind();
             }
+
+            rewindSound.Play();
         }
     }
 }

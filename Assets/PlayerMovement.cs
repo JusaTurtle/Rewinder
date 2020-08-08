@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D bc;
     [SerializeField] private LayerMask glm; //Ground Layermask
+    public AudioSource jumpSound; //Jumping Sound Effect
 
     bool isGrounded()
     {
         RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, .1f, glm); //Generate a raycast under player that only detects glm
-        return hit.collider != null;
+        return hit.collider != null; //If the ray hits something, it returns as true
+                                     //If it doesn't hit something, it returns as false
     }
 
     void Start()
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && isGrounded()) //If jump key is pressed and isgrounded, the player will jump
         {
             rb.velocity = new Vector2(rb.velocity.x, jVelocity); //Jumping function
+            jumpSound.Play(); //Plays the sound (Obviously)
         }
     }
 }
